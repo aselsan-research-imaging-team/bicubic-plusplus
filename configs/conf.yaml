@@ -1,0 +1,81 @@
+load_pretrained: True
+strict_load: True
+pretrained_path: "./pretrained/bicubic_pp_x3.pth"
+
+loggers:
+  log_images: True
+
+network:
+  target: models.SR_models.Bicubic_plus_plus
+  params:
+    sr_rate: 3
+
+trainer:
+  base_lr_rate: 5e-4
+  num_epochs: 1000
+  use_Y_channel_in_val: True
+  check_val_every_n_epoch: 20
+  lr_scheduler:
+    target: training.schedulers.KneeLRScheduler
+    params:
+      peak_lr: 5e-4
+      warmup_steps: 0
+      total_steps: 1000
+      min_lr: 5e-6
+
+degradation:
+  train:
+    blur: False
+    img_noise: False
+    kernel_noise: False
+    load_kernels_from_disc: False
+    kernel_path: [""]
+    ksize: 21
+    rate_iso: 1.0
+    sig_min: 0.2
+    sig_max: 2.6
+    img_noise_level: 0.2
+  val:
+    blur: False
+    img_noise: False
+    kernel_noise: False
+    load_kernels_from_disc: False
+    kernel_path: [""]
+    ksize: 21
+    rate_iso: 1.0
+    sig_min: 0.2
+    sig_max: 2.6
+    img_noise_level: 0.2
+
+data:
+  train:
+    lr_path: [""]
+    hr_path: [""]
+    augment: True
+    scale: 3
+    patch_cropsize: 288
+    pool_lr: True
+    pool_hr: True
+    is_train: True
+  val:
+    lr_path: [""]
+    hr_path: [""]
+    augment: False
+    scale: 3
+    patch_cropsize: False
+    pool_lr: True
+    pool_hr: True
+    is_train: False
+
+loader:
+  train:
+    batch_size: 16
+    shuffle: False
+    num_workers: 8
+    pin_memory: False
+    persistent_workers: True
+  val:
+    batch_size: 8
+    shuffle: False
+    num_workers: 8
+    pin_memory: False
