@@ -1,6 +1,6 @@
-# Bicubic++: Slim, Slimmer, Slimmest - Designing an Industry-Grade Super-Resolution Network (:rocket: Winner of NTIRE @ CVPR 2023 RTSR Challange Track 2)
+# Bicubic++: Slim, Slimmer, Slimmest - Designing an Industry-Grade Super-Resolution Network (:rocket: Winner of [NTIRE RTSR Challange Track 2 (x3 SR)](https://codalab.lisn.upsaclay.fr/competitions/10228) @ CVPR 2023)
 
-**Bahri Batuhan Bilecen, Mustafa Ayazoglu**
+**[Bahri Batuhan Bilecen](https://scholar.google.com/citations?user=4GUU0H4AAAAJ), [Mustafa Ayazoglu](https://scholar.google.com/citations?hl=tr&user=72SEpzAAAAAJ)**
 
  [\[Preprint\]](https://arxiv.org/abs/2305.02126)
  [\[CVF Open Access\]](https://openaccess.thecvf.com/content/CVPR2023W/NTIRE/html/Bilecen_Bicubic_Slim_Slimmer_Slimmest_-_Designing_an_Industry-Grade_Super-Resolution_Network_CVPRW_2023_paper.html)
@@ -17,9 +17,9 @@ Our method adds ~1dB on Bicubic upscaling PSNR for all tested SR datasets and ru
        
        git clone https://github.com/aselsan-research-imaging-team/bicubic-plusplus.git
 2. Install the dependencies. We recommend using a virtual environment to manage the packages.
-    * Python 3.7
-    * PyTorch 1.7.1
-    * CUDA 11.0
+    * Python 3.8
+    * PyTorch 1.13.1
+    * CUDA 11.2
     * Other packages (numpy, opencv-python, pytorch-lightning, pyyaml)
       
 ## Test
@@ -28,7 +28,18 @@ Our method adds ~1dB on Bicubic upscaling PSNR for all tested SR datasets and ru
        
        python test.py
 ## Train
-The proposed three-stage training pipeline code will be published soon.
+The proposed three-stage training pipeline code will be published soon. For a straightforward training:
+
+1. Set validation & training dataset paths in `configs/conf.yaml` (`data.val.lr_path`, `data.val.hr_path`, `data.train.lr_path`, `data.train.hr_path`). Set `loader.train.batch_size` and `loader.val.batch_size` according to your dataset.
+2. Run train code.
+
+       python train.py
+
+## To-do list
+- [x] Publish the pretrained x3 PyTorch model with inference & base training scripts
+- [ ] Share the code for constructing 48-img DIV2K JPEG Q=90 fast validation set used in the ablation studies
+- [ ] Share the proposed three-stage training pipeline code
+- [ ] Publish C++ inference scripts and the compiled model
 
 ## Citation
 
