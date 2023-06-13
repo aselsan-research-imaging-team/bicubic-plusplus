@@ -7,7 +7,7 @@ class Bicubic_plus_plus(nn.Module):
         self.conv0 = nn.Conv2d(3, 32, kernel_size=3, stride=2, padding=1, bias=False)
         self.conv1 = nn.Conv2d(32, 32, kernel_size=3, padding=1, bias=False)
         self.conv2 = nn.Conv2d(32, 32, kernel_size=3, padding=1, bias=False)
-        self.conv_out = nn.Conv2d(32, (2*sr_rate)**2 * sr_rate, kernel_size=3, padding=1, bias=False)
+        self.conv_out = nn.Conv2d(32, (2*sr_rate)**2 * 3, kernel_size=3, padding=1, bias=False)
         self.Depth2Space = nn.PixelShuffle(2*sr_rate)
         self.act = nn.LeakyReLU(inplace=True, negative_slope=0.1)
 
