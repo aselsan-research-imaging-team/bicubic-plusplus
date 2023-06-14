@@ -23,6 +23,8 @@ Our method adds ~1dB on Bicubic upscaling PSNR for all tested SR datasets and ru
     * Other packages (numpy, opencv-python, pytorch-lightning, pyyaml)
       
 ## Test
+The utilized dataset in our ablation studies and the validation steps is the 48-img DIV2K validation dataset. The image indices are provided in `DIV2Kval_48img_indices`.
+
 1. Modify validation dataset paths (`data.val.lr_path` and `data.val.hr_path`) in `configs/conf.yaml` accordingly. Make sure that `load_pretrained` and `pretrained_path` are set correctly. You may change `loader.val.batch_size` to speed up the inference.
 2. Run test code.
        
@@ -37,7 +39,7 @@ The proposed three-stage training pipeline code will be published soon. For a st
 
 ## To-do list
 - [x] Publish the pretrained x3 PyTorch model with inference & base training scripts
-- [ ] Share the code for constructing 48-img DIV2K JPEG Q=90 fast validation set used in the ablation studies
+- [x] Share the 48-img DIV2K JPEG Q=90 fast validation set used in the ablation studies
 - [ ] Share the proposed three-stage training pipeline code
 - [ ] Publish C++ inference scripts and the compiled model
 
