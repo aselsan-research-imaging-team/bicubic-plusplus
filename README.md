@@ -17,12 +17,12 @@ Our method adds ~1dB on Bicubic upscaling PSNR for all tested SR datasets and ru
 1. Clone the repository.
        
        git clone https://github.com/aselsan-research-imaging-team/bicubic-plusplus.git
-2. Install the dependencies. We recommend using a virtual environment to manage the packages.
+2. Install the dependencies. We recommend using a virtual environment to manage the packages. You may use the `requirements.txt` provided.
     * Python 3.8
     * PyTorch 1.13.1
     * CUDA 11.2
-    * Other packages (numpy, opencv-python, pytorch-lightning, pyyaml)
-      
+    * Other packages (numpy==1.24.2, opencv-python=4.6.0.66, pytorch-lightning==1.6.0, pyyaml==6.0)
+
 ## Test
 The utilized dataset in our ablation studies and the validation steps is the 48-img DIV2K validation dataset. The image indices are provided in `DIV2Kval_48img_indices`.
 
@@ -41,7 +41,9 @@ The proposed three-stage training pipeline code will be published soon. For stra
 ## To-do list
 - [x] Publish the pre-trained x3 PyTorch model with inference & base training scripts
 - [x] Share the 48-img DIV2K JPEG Q=90 fast validation set used in the ablation studies
+- [ ] Provide inference scripts
 - [ ] Share the proposed three-stage training pipeline code
+- [ ] Share a cloud notebook for online inference and training
 - [ ] Publish C++ inference scripts and the compiled model
 
 ## Citation
