@@ -1,0 +1,5 @@
+numpy==1.24.2
+torch==1.13.1
+torchmetrics==0.9.3
+pytorch-lightning==1.6.0
+PyYAML==6.0
